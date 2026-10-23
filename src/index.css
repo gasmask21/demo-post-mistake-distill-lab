@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap");
+
+:root {
+  --font-display: "Bricolage Grotesque", sans-serif;
+  --font-serif: "Newsreader", Georgia, serif;
+  --font-sans: "IBM Plex Sans", sans-serif;
+  --ink: #0f1c24;
+  --ink-soft: #1c2e3a;
+  --ink-muted: #4a5d6a;
+  --paper: #f2f6f8;
+  --teal: #0e7490;
+  --slate: #475569;
+  --amber: #b45309;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: var(--paper);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}

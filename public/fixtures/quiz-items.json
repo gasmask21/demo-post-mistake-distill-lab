@@ -1,0 +1,107 @@
+{
+  "title": "Agent-shifted must-ask / post-mistake quiz (10 items)",
+  "paper_story": {
+    "isolated_bfcl_champ": {
+      "name": "StartLux-style (isolated BFCL champ)",
+      "isolated_accuracy": 0.922,
+      "agent_accuracy": 0.695
+    },
+    "agent_decision_4b": {
+      "name": "AgentDecision-4B-style (agent-state SFT)",
+      "isolated_accuracy": 0.893,
+      "agent_accuracy": 0.915
+    }
+  },
+  "items": [
+    {
+      "id": "q0",
+      "kind": "must-ask",
+      "prompt": "Two pending orders; customer said 'cancel my order'. Top action?",
+      "options": ["ask_user", "cancel_order", "stop"],
+      "gold": "ask_user",
+      "isolated_pick": "cancel_order",
+      "agent_pick": "ask_user"
+    },
+    {
+      "id": "q1",
+      "kind": "must-ask",
+      "prompt": "cancel≈0.37 vs ask_user≈0.63 on ambiguous cancel. Accept cancel?",
+      "options": ["defer_ask", "accept_cancel", "stop"],
+      "gold": "defer_ask",
+      "isolated_pick": "accept_cancel",
+      "agent_pick": "defer_ask"
+    },
+    {
+      "id": "q2",
+      "kind": "post-mistake",
+      "prompt": "Wrong gift order already cancelled. Next best action?",
+      "options": ["ask_user", "cancel_other", "stop"],
+      "gold": "ask_user",
+      "isolated_pick": "cancel_other",
+      "agent_pick": "ask_user"
+    },
+    {
+      "id": "q3",
+      "kind": "post-mistake",
+      "prompt": "Customer confirms restore then cancel shoes. First tool?",
+      "options": ["restore_order", "cancel_order", "reflect"],
+      "gold": "restore_order",
+      "isolated_pick": "cancel_order",
+      "agent_pick": "restore_order"
+    },
+    {
+      "id": "q4",
+      "kind": "ok",
+      "prompt": "Identity verified, single pending order id known. Cancel?",
+      "options": ["cancel_order", "ask_user", "lookup_orders"],
+      "gold": "cancel_order",
+      "isolated_pick": "cancel_order",
+      "agent_pick": "cancel_order"
+    },
+    {
+      "id": "q5",
+      "kind": "must-ask",
+      "prompt": "Refund vs reship both valid; intent unclear.",
+      "options": ["ask_user", "issue_refund", "reship"],
+      "gold": "ask_user",
+      "isolated_pick": "issue_refund",
+      "agent_pick": "ask_user"
+    },
+    {
+      "id": "q6",
+      "kind": "post-mistake",
+      "prompt": "After irreversible wrong cancel, is BFCL-style isolated cancel still correct?",
+      "options": ["no_recover_first", "yes_cancel_again", "stop"],
+      "gold": "no_recover_first",
+      "isolated_pick": "yes_cancel_again",
+      "agent_pick": "no_recover_first"
+    },
+    {
+      "id": "q7",
+      "kind": "ok",
+      "prompt": "Lookup returned one matching order; customer already named it.",
+      "options": ["cancel_order", "ask_user", "reflect"],
+      "gold": "cancel_order",
+      "isolated_pick": "cancel_order",
+      "agent_pick": "cancel_order"
+    },
+    {
+      "id": "q8",
+      "kind": "must-ask",
+      "prompt": "All 34 Jev failures started with irreversible wrong cancel instead of ask. Policy?",
+      "options": ["gate_with_ask", "always_cancel", "always_stop"],
+      "gold": "gate_with_ask",
+      "isolated_pick": "always_cancel",
+      "agent_pick": "gate_with_ask"
+    },
+    {
+      "id": "q9",
+      "kind": "post-mistake",
+      "prompt": "State after own mistake: soft label should mix teacher probs (α=0.3). Prefer?",
+      "options": ["agent_state_sft", "isolated_bfcl_only", "random"],
+      "gold": "agent_state_sft",
+      "isolated_pick": "isolated_bfcl_only",
+      "agent_pick": "agent_state_sft"
+    }
+  ]
+}
